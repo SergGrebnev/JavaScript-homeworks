@@ -17,14 +17,14 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-    if(this.marks !== undefined){
+    if("marks" in this){
         this.marks.push(...marks);
     }
   
 }
 
 Student.prototype.getAverage = function () {
-    if(this.marks === undefined || this.marks.length === 0){
+    if(!("marks" in this) || this.marks.length === 0){
         return 0;
     } else {
         return this.marks.reduce((acc, item, i, arr) => acc + item / arr.length, 0);
