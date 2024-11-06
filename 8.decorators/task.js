@@ -29,8 +29,7 @@ function debounceDecoratorNew(func, delay) {
 
         if(timeoutId){ //если таймаут существует, то удаляем его
             clearTimeout(timeoutId);
-        }
-        if(!timeoutId){ // Первый вызов происходит моментально
+        }else{ // Первый вызов происходит моментально
             func(...args);
             wrapper.count ++; // количество вызовов декорированной функции
         }
